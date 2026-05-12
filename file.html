@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChemPrep – USNCO Study Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">⚗️ ChemPrep</div>
+    <p class="tagline">Your complete USNCO study guide</p>
+  </header>
+
+  <main>
+    <section id="progress-section">
+      <h2>Your Progress</h2>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <p id="progress-label">0 / 0 topics completed</p>
+    </section>
+
+    <section id="search-section">
+      <input type="text" id="search-input" placeholder="🔍 Search topics..." />
+    </section>
+
+    <section id="topics-section">
+      <!-- Units dynamically injected here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for USNCO prep 🧪 | <a href="[acs.org](https://www.acs.org/olympiad)" target="_blank">ACS Official Site</a></p>
+  </footer>
+
+  <script src="topics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

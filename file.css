@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(135deg, #2b6cb0, #2c7a7b);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Progress */
+#progress-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+#progress-section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.progress-bar-wrapper {
+  background: #e2e8f0;
+  border-radius: 999px;
+  height: 14px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2b6cb0, #38b2ac);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+#progress-label {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+/* Search */
+#search-section {
+  margin-bottom: 1.5rem;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e0;
+  font-size: 1rem;
+  background: white;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  border-color: #2b6cb0;
+}
+
+/* Unit cards */
+.unit-card {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.unit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  background: #ebf4ff;
+  transition: background 0.2s;
+}
+
+.unit-header:hover {
+  background: #dbeafe;
+}
+
+.unit-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a365d;
+}
+
+.unit-meta {
+  font-size: 0.8rem;
+  color: #4a5568;
+}
+
+.unit-body {
+  display: none;
+  padding: 1rem 1.25rem;
+}
+
+.unit-body.open {
+  display: block;
+}
+
+/* Topic list */
+.topic-list {
+  list-style: none;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #f0f4f8;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.topic-item:last-child {
+  border-bottom: none;
+}
+
+.topic-item:hover {
+  background: #f7fafc;
+}
+
+.topic-item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #2b6cb0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.topic-label {
+  font-size: 0.95rem;
+  color: #2d3748;
+  flex: 1;
+}
+
+.topic-item.done .topic-label {
+  text-decoration: line-through;
+  color: #a0aec0;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+footer a {
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .logo { font-size: 1.5rem; }
+  .unit-title { font-size: 0.9rem; }
+}
