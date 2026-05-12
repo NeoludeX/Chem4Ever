@@ -1,6 +1,0 @@
-chemistry-olympiad/
-├── index.html
-├── styles.css
-├── app.js
-├── topics.js
-└── README.md
