@@ -25,17 +25,3 @@ A lightweight, interactive chemistry study tracker built for USNCO preparation.
 13. Organic Chemistry
 14. Analytical Chemistry
 15. Laboratory Chemistry
-
-## How to Run
-Just open `index.html` in any browser — no build tools or installs needed.
-
-## How to Deploy (GitHub Pages)
-1. Push this repo to GitHub
-2. Go to Settings → Pages
-3. Set source to `main` branch, root folder
-4. Your site will be live at `[yourusername.github.io](https://yourusername.github.io/repo-name)`
-
-## Future Plans
-- [ ] Add lesson content per topic
-- [ ] Quizzes and practice problems
-- [ ] Biology, Physics, Algebra, Geometry, Trig modules
