@@ -3,39 +3,984 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChemPrep – USNCO Study Hub</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>AP Chemistry Study Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; letter-spacing: 1px; }
+    header p { margin-top: 6px; color: #a0aec0; font-size: 0.95rem; }
+
+    nav {
+      background: #16213e;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      border-bottom: 3px solid #0f3460;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #a0aec0;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+    }
+    nav button:hover { color: #e2e8f0; border-bottom-color: #4a90d9; }
+    nav button.active { color: #63b3ed; border-bottom-color: #63b3ed; }
+
+    main {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 0 20px 60px;
+    }
+
+    .lesson { display: none; }
+    .lesson.active { display: block; }
+
+    .lesson-header {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: white;
+      border-radius: 12px 12px 0 0;
+      padding: 28px 32px;
+    }
+    .lesson-header .unit-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #63b3ed;
+      margin-bottom: 8px;
+    }
+    .lesson-header h2 { font-size: 1.8rem; }
+    .lesson-header p { margin-top: 10px; color: #cbd5e0; line-height: 1.6; }
+
+    .lesson-body {
+      background: white;
+      border-radius: 0 0 12px 12px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .lesson-body h3 {
+      font-size: 1.15rem;
+      color: #0f3460;
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .lesson-body h3:first-child { margin-top: 0; }
+
+    .lesson-body p { line-height: 1.75; margin-bottom: 12px; color: #2d3748; }
+
+    .lesson-body ul, .lesson-body ol {
+      padding-left: 24px;
+      margin-bottom: 14px;
+    }
+    .lesson-body li { line-height: 1.8; color: #2d3748; margin-bottom: 4px; }
+
+    .formula-box {
+      background: #ebf8ff;
+      border-left: 4px solid #3182ce;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #1a365d;
+    }
+    .formula-box strong { display: block; margin-bottom: 6px; font-family: 'Segoe UI', sans-serif; color: #2b6cb0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    .example-box {
+      background: #f0fff4;
+      border-left: 4px solid #38a169;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .example-box strong { display: block; margin-bottom: 8px; color: #276749; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+    .example-box p { margin-bottom: 6px; font-size: 0.95rem; }
+
+    .key-concept {
+      background: #fffbeb;
+      border: 1px solid #f6e05e;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .key-concept strong { color: #b7791f; }
+
+    .remember-box {
+      background: #fff5f5;
+      border-left: 4px solid #e53e3e;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 0.93rem;
+      color: #742a2a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #1a1a2e;
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f7fafc; }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+    .nav-btn {
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover { background: #1a4a8a; }
+    .nav-btn:disabled { background: #cbd5e0; cursor: default; }
+
+    .progress-bar {
+      background: #e2e8f0;
+      border-radius: 99px;
+      height: 6px;
+      margin: 16px 0 28px;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #3182ce, #63b3ed);
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.3s ease;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .topic-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .topic-card:hover { border-color: #63b3ed; box-shadow: 0 4px 12px rgba(49,130,206,0.15); transform: translateY(-2px); }
+    .topic-card .topic-num { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 1px; }
+    .topic-card .topic-name { font-weight: 700; color: #1a1a2e; margin-top: 4px; font-size: 0.95rem; }
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">⚗️ ChemPrep</div>
-    <p class="tagline">Your complete USNCO study guide</p>
-  </header>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>College Board aligned · 15 Topics · Full AP-level lessons</p>
+</header>
 
-  <main>
-    <section id="progress-section">
-      <h2>Your Progress</h2>
-      <div class="progress-bar-wrapper">
-        <div class="progress-bar" id="progress-bar"></div>
+<nav id="topNav">
+  <button class="active" onclick="showLesson(0)">Home</button>
+  <button onclick="showLesson(1)">1. Atomic Structure</button>
+  <button onclick="showLesson(2)">2. Periodic Trends</button>
+  <button onclick="showLesson(3)">3. Bonding</button>
+  <button onclick="showLesson(4)">4. Stoichiometry</button>
+  <button onclick="showLesson(5)">5. Solutions</button>
+  <button onclick="showLesson(6)">6. Gases</button>
+  <button onclick="showLesson(7)">7. Thermodynamics</button>
+  <button onclick="showLesson(8)">8. Kinetics</button>
+  <button onclick="showLesson(9)">9. Equilibrium</button>
+  <button onclick="showLesson(10)">10. Acids & Bases</button>
+  <button onclick="showLesson(11)">11. Thermo II</button>
+  <button onclick="showLesson(12)">12. Electrochemistry</button>
+  <button onclick="showLesson(13)">13. Inorganic Chem</button>
+  <button onclick="showLesson(14)">14. Organic Chem</button>
+  <button onclick="showLesson(15)">15. Lab & Analytical</button>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <div class="lesson active" id="lesson-0">
+    <div class="lesson-header">
+      <div class="unit-label">Welcome</div>
+      <h2>AP Chemistry Study Guide</h2>
+      <p>Choose a topic from the navigation bar above, or click any card below to jump straight in. Lessons are written to AP exam standards — master all 15 and you'll have everything you need.</p>
+    </div>
+    <div class="lesson-body">
+      <h3>How to Use This Guide</h3>
+      <p>Each lesson covers core concepts, key formulas, worked examples, and AP exam tips. Work through them in order — later topics build on earlier ones — or jump to any section you need to review.</p>
+      <div class="key-concept"><strong>📌 AP Exam Tip:</strong> The AP Chemistry exam is 3 hours 15 minutes. Section I has 60 multiple-choice questions (90 min) and Section II has 7 free-response questions (105 min). Units 3, 7, and 8 carry the most weight.</div>
+      <h3>All Topics</h3>
+      <div class="topic-grid">
+        <div class="topic-card" onclick="showLesson(1)"><div class="topic-num">Topic 1</div><div class="topic-name">Atomic Structure</div></div>
+        <div class="topic-card" onclick="showLesson(2)"><div class="topic-num">Topic 2</div><div class="topic-name">Periodic Trends</div></div>
+        <div class="topic-card" onclick="showLesson(3)"><div class="topic-num">Topic 3</div><div class="topic-name">Chemical Bonding</div></div>
+        <div class="topic-card" onclick="showLesson(4)"><div class="topic-num">Topic 4</div><div class="topic-name">Stoichiometry</div></div>
+        <div class="topic-card" onclick="showLesson(5)"><div class="topic-num">Topic 5</div><div class="topic-name">Solutions</div></div>
+        <div class="topic-card" onclick="showLesson(6)"><div class="topic-num">Topic 6</div><div class="topic-name">Gases</div></div>
+        <div class="topic-card" onclick="showLesson(7)"><div class="topic-num">Topic 7</div><div class="topic-name">Thermodynamics</div></div>
+        <div class="topic-card" onclick="showLesson(8)"><div class="topic-num">Topic 8</div><div class="topic-name">Kinetics</div></div>
+        <div class="topic-card" onclick="showLesson(9)"><div class="topic-num">Topic 9</div><div class="topic-name">Equilibrium</div></div>
+        <div class="topic-card" onclick="showLesson(10)"><div class="topic-num">Topic 10</div><div class="topic-name">Acids & Bases</div></div>
+        <div class="topic-card" onclick="showLesson(11)"><div class="topic-num">Topic 11</div><div class="topic-name">Thermodynamics II</div></div>
+        <div class="topic-card" onclick="showLesson(12)"><div class="topic-num">Topic 12</div><div class="topic-name">Electrochemistry</div></div>
+        <div class="topic-card" onclick="showLesson(13)"><div class="topic-num">Topic 13</div><div class="topic-name">Inorganic Chemistry</div></div>
+        <div class="topic-card" onclick="showLesson(14)"><div class="topic-num">Topic 14</div><div class="topic-name">Organic Chemistry</div></div>
+        <div class="topic-card" onclick="showLesson(15)"><div class="topic-num">Topic 15</div><div class="topic-name">Lab & Analytical</div></div>
       </div>
-      <p id="progress-label">0 / 0 topics completed</p>
-    </section>
+    </div>
+  </div>
 
-    <section id="search-section">
-      <input type="text" id="search-input" placeholder="🔍 Search topics..." />
-    </section>
+  <!-- LESSON 1: ATOMIC STRUCTURE -->
+  <div class="lesson" id="lesson-1">
+    <div class="lesson-header">
+      <div class="unit-label">Topic 1</div>
+      <h2>Atomic Structure & Properties</h2>
+      <p>The foundation of all chemistry. Understand how atoms are built, how electrons are arranged, and what that arrangement means for every chemical property.</p>
+    </div>
+    <div class="lesson-body">
+      <div class="progress-bar"><div class="progress-fill" style="width:7%"></div></div>
 
-    <section id="topics-section">
-      <!-- Units dynamically injected here -->
-    </section>
-  </main>
+      <h3>The Subatomic Particles</h3>
+      <p>Every atom consists of three fundamental particles. The <strong>nucleus</strong> sits at the center and contains protons and neutrons. Electrons orbit in a cloud around the nucleus.</p>
+      <table>
+        <tr><th>Particle</th><th>Charge</th><th>Mass (amu)</th><th>Location</th></tr>
+        <tr><td>Proton</td><td>+1</td><td>1.0073</td><td>Nucleus</td></tr>
+        <tr><td>Neutron</td><td>0</td><td>1.0087</td><td>Nucleus</td></tr>
+        <tr><td>Electron</td><td>−1</td><td>0.000549</td><td>Electron cloud</td></tr>
+      </table>
+      <p>The <strong>atomic number (Z)</strong> equals the number of protons — this defines what element an atom is. The <strong>mass number (A)</strong> equals protons + neutrons.</p>
+      <div class="formula-box"><strong>Key Relationships</strong>
+        Atomic number (Z) = number of protons
+        Mass number (A) = protons + neutrons
+        Neutrons = A − Z
+        Neutral atom: electrons = protons
+      </div>
 
-  <footer>
-    <p>Built for USNCO prep 🧪 | <a href="[acs.org](https://www.acs.org/olympiad)" target="_blank">ACS Official Site</a></p>
-  </footer>
+      <h3>Isotopes and Average Atomic Mass</h3>
+      <p>Isotopes are atoms of the same element with different numbers of neutrons. For example, Carbon-12 has 6 neutrons and Carbon-14 has 8 neutrons — but both have 6 protons. The <strong>average atomic mass</strong> on the periodic table is a weighted average based on natural abundance.</p>
+      <div class="formula-box"><strong>Average Atomic Mass Formula</strong>
+        Average mass = Σ (fractional abundance × isotope mass)
+        Example: Cl-35 (75.77%) and Cl-37 (24.23%)
+        = (0.7577 × 34.969) + (0.2423 × 36.966) = 35.45 amu
+      </div>
+      <p><strong>Mass spectrometry</strong> is the experimental technique used to determine isotope masses and abundances. On the AP exam, you may be given a mass spectrum and asked to calculate average atomic mass from the peaks.</p>
 
-  <script src="topics.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+      <h3>Electron Configuration</h3>
+      <p>Electrons occupy orbitals arranged in shells (energy levels) and subshells. The four subshell types are <strong>s, p, d, and f</strong>, each with a specific shape and maximum electron capacity.</p>
+      <table>
+        <tr><th>Subshell</th><th>Orbitals</th><th>Max Electrons</th></tr>
+        <tr><td>s</td><td>1</td><td>2</td></tr>
+        <tr><td>p</td><td>3</td><td>6</td></tr>
+        <tr><td>d</td><td>5</td><td>10</td></tr>
+        <tr><td>f</td><td>7</td><td>14</td></tr>
+      </table>
+      <p>Three rules govern how electrons fill orbitals:</p>
+      <ul>
+        <li><strong>Aufbau Principle:</strong> Electrons fill lowest energy orbitals first (1s → 2s → 2p → 3s → 3p → 4s → 3d...)</li>
+        <li><strong>Pauli Exclusion Principle:</strong> No two electrons in an atom can have the same four quantum numbers. Each orbital holds max 2 electrons with opposite spins.</li>
+        <li><strong>Hund's Rule:</strong> Within a subshell, electrons occupy separate orbitals singly before pairing up (maximizes spin).</li>
+      </ul>
+      <div class="example-box">
+        <strong>Worked Example: Write the electron configuration of Iron (Fe, Z=26)</strong>
+        <p>Fill orbitals in order: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶</p>
+        <p>Condensed (noble gas) notation: [Ar] 4s² 3d⁶</p>
+        <p>Note: Fe has 6 electrons in the 3d subshell — two orbitals are paired, three are singly occupied (Hund's rule).</p>
+      </div>
+
+      <h3>Photoelectron Spectroscopy (PES)</h3>
+      <p>PES measures the energy required to remove electrons from different subshells. The resulting spectrum shows <strong>peaks</strong> corresponding to each occupied subshell. Higher binding energy = closer to nucleus = harder to remove.</p>
+      <div class="key-concept"><strong>📌 AP Exam Tip:</strong> PES is frequently tested. Peak height ∝ number of electrons in that subshell. The highest binding energy peak corresponds to the innermost electrons (1s). Be able to identify the element from a PES spectrum and connect it to electron configuration.</div>
+
+      <h3>Moles and Molar Mass</h3>
+      <p>The <strong>mole</strong> is chemistry's counting unit. One mole = 6.022 × 10²³ particles (Avogadro's number). Molar mass (g/mol) numerically equals atomic mass (amu) but at the macroscopic scale.</p>
+      <div class="formula-box"><strong>Mole Conversions</strong>
+        moles = mass (g) ÷ molar mass (g/mol)
+        particles = moles × 6.022 × 10²³
+        moles = particles ÷ 6.022 × 10²³
+      </div>
+      <div class="example-box">
+        <strong>Worked Example</strong>
+        <p>How many atoms are in 10.0 g of calcium (Ca, molar mass = 40.08 g/mol)?</p>
+        <p>Moles of Ca = 10.0 ÷ 40.08 = 0.2495 mol</p>
+        <p>Atoms = 0.2495 × 6.022 × 10²³ = <strong>1.50 × 10²³ atoms</strong></p>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn" disabled>← Previous</button>
+        <button class="nav-btn" onclick="showLesson(2)">Next: Periodic Trends →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 2: PERIODIC TRENDS -->
+  <div class="lesson" id="lesson-2">
+    <div class="lesson-header">
+      <div class="unit-label">Topic 2</div>
+      <h2>Periodic Trends</h2>
+      <p>The periodic table is organized so that trends in atomic properties are predictable. Understanding why these trends exist is just as important as knowing the patterns themselves.</p>
+    </div>
+    <div class="lesson-body">
+      <div class="progress-bar"><div class="progress-fill" style="width:14%"></div></div>
+
+      <h3>Effective Nuclear Charge (Z_eff)</h3>
+      <p>Electrons in inner shells <strong>shield</strong> outer electrons from the full pull of the nucleus. The effective nuclear charge felt by a valence electron is approximately:</p>
+      <div class="formula-box"><strong>Effective Nuclear Charge</strong>
+        Z_eff ≈ Z − S
+        Z = atomic number, S = shielding constant (≈ number of inner-shell electrons)
+      </div>
+      <p>As you move across a period (left to right), Z increases but electrons are added to the <em>same</em> shell (poor shielding), so Z_eff increases. This is the root cause of most periodic trends.</p>
+
+      <h3>Atomic Radius</h3>
+      <p>Atomic radius measures the size of an atom. Two opposing forces control it: Z_eff pulling electrons inward vs. the number of electron shells pushing outward.</p>
+      <ul>
+        <li><strong>Across a period (→):</strong> Radius <em>decreases</em>. Z_eff increases, pulling electrons closer to the nucleus.</li>
+        <li><strong>Down a group (↓):</strong> Radius <em>increases</em>. New electron shells are added, increasing distance from nucleus.</li>
+      </ul>
+      <div class="key-concept"><strong>📌 Largest atom:</strong> Cesium (Cs) — bottom-left of the table. <strong>Smallest atom:</strong> Helium (He) — top-right (noble gases excluded from comparisons, use Fluorine for smallest reactive atom).</div>
+
+      <h3>Ionization Energy (IE)</h3>
+      <p>Ionization energy is the energy required to remove an electron from a gaseous atom. Higher Z_eff and smaller atomic radius both increase IE.</p>
+      <ul>
+        <li><strong>Across a period (→):</strong> IE generally <em>increases</em> (higher Z_eff, electrons harder to remove)</li>
+        <li><strong>Down a group (↓):</strong> IE <em>decreases</em> (outer electrons are farther from nucleus)</li>
+      </ul>
+      <p>Important exceptions: IE dips from Be→B (removing from 2p is easier than 2s) and from N→O (O has a paired 2p electron that experiences extra repulsion, making it easier to remove).</p>
+      <div class="example-box">
+        <strong>Successive Ionization Energies</strong>
+        <p>Each successive electron removed requires more energy (fewer electrons, same nuclear charge = stronger pull). A <strong>dramatic jump</strong> in successive IEs signals you've reached a core electron shell — this reveals the element's group number.</p>
+        <p>Example: An element with successive IEs of 738, 1450, 7733, 10,540... The big jump after the 2nd IE means the element has 2 valence electrons → Group 2 (Magnesium).</p>
+      </div>
+
+      <h3>Electron Affinity (EA)</h3>
+      <p>Electron affinity is the energy change when a neutral gaseous atom gains an electron. More negative EA = greater tendency to gain electrons. Generally increases (becomes more negative) across a period and up a group. Halogens have the highest electron affinities.</p>
+
+      <h3>Electronegativity</h3>
+      <p>Electronegativity measures an atom's ability to attract bonding electrons toward itself. Uses the Pauling scale (F = 4.0, highest).</p>
+      <ul>
+        <li>Increases across a period (→) and up a group (↑)</li>
+        <li><strong>Fluorine</strong> is the most electronegative element (3.98)</li>
+        <li><strong>Cesium/Francium</strong> are the least electronegative</li>
+      </ul>
+
+      <h3>Ionic Radii</h3>
+      <p>When atoms form ions, their radius changes significantly:</p>
+      <ul>
+        <li><strong>Cations</strong> (lose electrons) are <em>smaller</em> than the parent atom — fewer electrons, same nuclear charge = stronger pull per electron</li>
+        <li><strong>Anions</strong> (gain electrons) are <em>larger</em> than the parent atom — more electrons, same nuclear charge = weaker pull per electron</li>
+      </ul>
+      <div class="remember-box">⚠️ Common AP Trap: Na⁺ and F⁻ are isoelectronic (both have 10 electrons), but Na⁺ (Z=11) is smaller than F⁻ (Z=9) because higher Z means stronger pull on the same 10 electrons.</div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="showLesson(1)">← Previous</button>
+        <button class="nav-btn" onclick="showLesson(3)">Next: Bonding →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 3: BONDING -->
+  <div class="lesson" id="lesson-3">
+    <div class="lesson-header">
+      <div class="unit-label">Topic 3</div>
+      <h2>Chemical Bonding & Molecular Structure</h2>
+      <p>Bonds form because atoms achieve lower potential energy together than apart. The type and geometry of bonds determine virtually every physical and chemical property of a substance.</p>
+    </div>
+    <div class="lesson-body">
+      <div class="progress-bar"><div class="progress-fill" style="width:21%"></div></div>
+
+      <h3>Types of Chemical Bonds</h3>
+      <table>
+        <tr><th>Bond Type</th><th>Electronegativity Difference</th><th>Description</th></tr>
+        <tr><td>Nonpolar Covalent</td><td>0 – 0.4</td><td>Equal sharing of electrons</td></tr>
+        <tr><td>Polar Covalent</td><td>0.4 – 1.7</td><td>Unequal sharing; partial charges (δ+/δ−)</td></tr>
+        <tr><td>Ionic</td><td>&gt; 1.7</td><td>Electron transfer; full charges</td></tr>
+      </table>
+
+      <h3>Lewis Structures</h3>
+      <p>Lewis structures show how valence electrons are distributed in a molecule. Follow these steps:</p>
+      <ol>
+        <li>Count total valence electrons (add 1 per negative charge; subtract 1 per positive charge)</li>
+        <li>Connect atoms with single bonds (2e⁻ each)</li>
+        <li>Complete octets on terminal atoms first (except H, which needs only 2)</li>
+        <li>Place remaining electrons on central atom</li>
+        <li>If central atom lacks octet, convert lone pairs to multiple bonds</li>
+      </ol>
+      <div class="key-concept"><strong>📌 Formal Charge:</strong> FC = (valence e⁻) − (lone pair e⁻) − ½(bonding e⁻). The best Lewis structure minimizes formal charges (ideally all zero). If charges unavoidable, negative FC should be on the more electronegative atom.</div>
+
+      <h3>Resonance</h3>
+      <p>When a molecule can be drawn with multiple valid Lewis structures differing only in the placement of electrons (not atoms), those structures are <strong>resonance structures</strong>. The actual molecule is a <strong>resonance hybrid</strong> — an average of all structures. This delocalization of electrons lowers energy and makes the molecule more stable.</p>
+      <p>Classic examples: O₃ (ozone), NO₃⁻, CO₃²⁻, benzene (C₆H₆)</p>
+
+      <h3>VSEPR Theory and Molecular Geometry</h3>
+      <p>Valence Shell Electron Pair Repulsion (VSEPR) theory predicts shape: electron groups (bonds + lone pairs) arrange themselves to maximize distance from each other.</p>
+      <table>
+        <tr><th>Electron Groups</th><th>Lone Pairs</th><th>Geometry</th><th>Bond Angle</th><th>Example</th></tr>
+        <tr><td>2</td><td>0</td><td>Linear</td><td>180°</td><td>CO₂, BeCl₂</td></tr>
+        <tr><td>3</td><td>0</td><td>Trigonal planar</td><td>120°</td><td>BF₃, SO₃</td></tr>
+        <tr><td>3</td><td>1</td><td>Bent</td><td>&lt;120°</td><td>SO₂, O₃This is a big build — here's the complete multi-page website. This covers all 9 AP Chemistry units with real lesson content, navigation tabs, and a clean layout. Replace your current `index.html` with all of this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AP Chemistry Study Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      padding: 24px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; letter-spacing: 1px; }
+    header p { margin-top: 6px; font-size: 0.95rem; color: #a0b0c8; }
+
+    nav {
+      background: #16213e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    nav button {
+      background: transparent;
+      border: 1px solid #3a5068;
+      color: #a0b8d0;
+      padding: 7px 13px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    nav button:hover { background: #0f3460; color: white; border-color: #0f3460; }
+    nav button.active { background: #e94560; color: white; border-color: #e94560; font-weight: 600; }
+
+    .page { display: none; padding: 40px; max-width: 900px; margin: 0 auto; }
+    .page.active { display: block; }
+
+    .unit-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e94560;
+      margin-bottom: 6px;
+    }
+
+    h2 { font-size: 1.9rem; color: #1a1a2e; margin-bottom: 8px; }
+    .intro {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      padding: 16px 20px;
+      background: #e8eef5;
+      border-left: 4px solid #e94560;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+
+    .section h3 {
+      font-size: 1.2rem;
+      color: #0f3460;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e8eef5;
+    }
+
+    .section p { line-height: 1.75; color: #333; margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+
+    ul, ol { margin: 10px 0 14px 22px; }
+    li { line-height: 1.75; color: #333; margin-bottom: 4px; }
+
+    .formula-box {
+      background: #1a1a2e;
+      color: #7ecfff;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin: 14px 0;
+      line-height: 1.8;
+    }
+
+    .callout {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: 0.92rem;
+      color: #555;
+    }
+    .callout strong { color: #e65100; }
+
+    .example {
+      background: #e8f5e9;
+      border-left: 4px solid #2e7d32;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: 0.93rem;
+      color: #333;
+    }
+    .example strong { color: #1b5e20; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.93rem;
+    }
+    th {
+      background: #0f3460;
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #e0e0e0; color: #333; }
+    tr:nth-child(even) td { background: #f5f7fa; }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #e8eef5;
+    }
+    .nav-btn {
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 11px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover { background: #e94560; }
+    .nav-btn:disabled { background: #ccc; cursor: default; }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .home-card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 4px solid #e94560;
+    }
+    .home-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.13); }
+    .home-card h3 { font-size: 1rem; color: #0f3460; margin-bottom: 6px; }
+    .home-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+    .home-card .unit-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: #e94560; margin-bottom: 6px; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete lessons for all 9 units — from atomic structure to electrochemistry</p>
+</header>
+
+<nav id="mainNav">
+  <button class="active" onclick="showPage('home', this)">🏠 Home</button>
+  <button onclick="showPage('unit1', this)">1: Atomic Structure</button>
+  <button onclick="showPage('unit2', this)">2: Molecular Properties</button>
+  <button onclick="showPage('unit3', this)">3: Intermolecular Forces</button>
+  <button onclick="showPage('unit4', this)">4: Chemical Reactions</button>
+  <button onclick="showPage('unit5', this)">5: Kinetics</button>
+  <button onclick="showPage('unit6', this)">6: Thermodynamics</button>
+  <button onclick="showPage('unit7', this)">7: Equilibrium</button>
+  <button onclick="showPage('unit8', this)">8: Acids & Bases</button>
+  <button onclick="showPage('unit9', this)">9: Electrochemistry</button>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="unit-label">Welcome</div>
+  <h2>AP Chemistry — Full Course</h2>
+  <div class="intro">
+    This guide covers everything on the AP Chemistry exam across 9 units. Each lesson includes core concepts, key formulas, worked examples, and things to watch out for. Work through units in order — each one builds on the last.
+  </div>
+  <div class="home-grid">
+    <div class="home-card" onclick="showPageById('unit1')">
+      <div class="unit-num">Unit 1</div>
+      <h3>Atomic Structure & Properties</h3>
+      <p>Atoms, electron configuration, periodic trends, moles, and molar mass.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit2')">
+      <div class="unit-num">Unit 2</div>
+      <h3>Molecular & Ionic Compounds</h3>
+      <p>Lewis structures, VSEPR theory, hybridization, and molecular geometry.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit3')">
+      <div class="unit-num">Unit 3</div>
+      <h3>Intermolecular Forces & States</h3>
+      <p>IMFs, phase diagrams, vapor pressure, and properties of solutions.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit4')">
+      <div class="unit-num">Unit 4</div>
+      <h3>Chemical Reactions</h3>
+      <p>Reaction types, stoichiometry, net ionic equations, and limiting reagents.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit5')">
+      <div class="unit-num">Unit 5</div>
+      <h3>Kinetics</h3>
+      <p>Reaction rates, rate laws, activation energy, and reaction mechanisms.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit6')">
+      <div class="unit-num">Unit 6</div>
+      <h3>Thermodynamics</h3>
+      <p>Enthalpy, entropy, Gibbs free energy, and Hess's Law.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit7')">
+      <div class="unit-num">Unit 7</div>
+      <h3>Equilibrium</h3>
+      <p>Keq, reaction quotient, ICE tables, and Le Châtelier's Principle.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit8')">
+      <div class="unit-num">Unit 8</div>
+      <h3>Acids & Bases</h3>
+      <p>pH, Ka/Kb, buffers, titrations, and acid-base equilibria.</p>
+    </div>
+    <div class="home-card" onclick="showPageById('unit9')">
+      <div class="unit-num">Unit 9</div>
+      <h3>Electrochemistry</h3>
+      <p>Redox reactions, galvanic cells, standard cell potential, and electrolysis.</p>
+    </div>
+  </div>
+</div>
+
+<!-- UNIT 1: ATOMIC STRUCTURE -->
+<div id="unit1" class="page">
+  <div class="unit-label">Unit 1</div>
+  <h2>Atomic Structure & Properties</h2>
+  <div class="intro">
+    Everything in chemistry begins with atoms. This unit covers what atoms are made of, how electrons are arranged, and how the periodic table organizes elements by their properties. You'll also master the mole — chemistry's fundamental counting unit.
+  </div>
+
+  <div class="section">
+    <h3>🔬 Atomic Structure</h3>
+    <p>Atoms consist of three subatomic particles: <strong>protons</strong> (positive charge, in nucleus), <strong>neutrons</strong> (no charge, in nucleus), and <strong>electrons</strong> (negative charge, orbiting nucleus).</p>
+    <ul>
+      <li><strong>Atomic number (Z):</strong> number of protons — defines the element</li>
+      <li><strong>Mass number (A):</strong> protons + neutrons</li>
+      <li><strong>Isotopes:</strong> same element, different number of neutrons (e.g., C-12 and C-14)</li>
+      <li><strong>Ions:</strong> atoms that have gained or lost electrons (anion = gained e⁻, cation = lost e⁻)</li>
+    </ul>
+    <div class="formula-box">
+      Atomic mass (amu) = Σ (isotope mass × fractional abundance)
+    </div>
+    <div class="example">
+      <strong>Example:</strong> Chlorine is 75.77% Cl-35 (34.969 amu) and 24.23% Cl-37 (36.966 amu).<br>
+      Avg mass = (0.7577 × 34.969) + (0.2423 × 36.966) = <strong>35.45 amu</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>⚛️ Electron Configuration</h3>
+    <p>Electrons occupy orbitals arranged in energy levels (shells). The order of filling follows the <strong>Aufbau principle</strong>: fill lowest energy orbitals first.</p>
+    <div class="formula-box">
+      Filling order: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p...
+    </div>
+    <p>Two additional rules govern electron arrangement:</p>
+    <ul>
+      <li><strong>Pauli Exclusion Principle:</strong> No two electrons in the same orbital can have the same spin — each orbital holds max 2 electrons with opposite spins.</li>
+      <li><strong>Hund's Rule:</strong> When filling orbitals of equal energy (like three 2p orbitals), put one electron in each before doubling up.</li>
+    </ul>
+    <div class="example">
+      <strong>Example:</strong> Iron (Fe, Z=26)<br>
+      Full: 1s²2s²2p⁶3s²3p⁶4s²3d⁶<br>
+      Abbreviated: [Ar] 4s²3d⁶
+    </div>
+    <div class="callout">
+      <strong>⚠️ Watch out:</strong> Cr and Cu are exceptions — they steal an electron from 4s to get a half-filled or fully-filled 3d subshell, which is more stable. Cr = [Ar]4s¹3d⁵, Cu = [Ar]4s¹3d¹⁰
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📡 Photoelectron Spectroscopy (PES)</h3>
+    <p>PES measures the energy required to remove electrons from an atom. Each peak in a PES spectrum corresponds to a subshell. <strong>Higher binding energy = closer to nucleus = harder to remove.</strong> The relative height of each peak reflects the number of electrons in that subshell.</p>
+    <div class="callout">
+      <strong>AP Tip:</strong> You'll be asked to match a PES spectrum to an element. Count the peaks (= number of subshells) and relative heights (= number of electrons per subshell).
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📊 Periodic Trends</h3>
+    <table>
+      <tr><th>Trend</th><th>Across Period (→)</th><th>Down Group (↓)</th></tr>
+      <tr><td>Atomic Radius</td><td>Decreases</td><td>Increases</td></tr>
+      <tr><td>Ionization Energy</td><td>Increases</td><td>Decreases</td></tr>
+      <tr><td>Electronegativity</td><td>Increases</td><td>Decreases</td></tr>
+      <tr><td>Electron Affinity</td><td>Generally increases</td><td>Generally decreases</td></tr>
+    </table>
+    <p><strong>Why?</strong> Going across a period, nuclear charge increases while shielding stays roughly the same, pulling electrons closer (smaller radius, higher IE). Going down a group, new electron shells are added, increasing distance from nucleus and shielding.</p>
+  </div>
+
+  <div class="section">
+    <h3>⚖️ The Mole & Molar Mass</h3>
+    <p>The <strong>mole</strong> is the chemist's counting unit. One mole = 6.022 × 10²³ particles (Avogadro's number). Molar mass (g/mol) = the mass of one mole of a substance, numerically equal to its atomic/molecular mass in amu.</p>
+    <div class="formula-box">
+      moles = mass (g) ÷ molar mass (g/mol)
+      particles = moles × 6.022 × 10²³
+    </div>
+    <div class="example">
+      <strong>Example:</strong> How many moles are in 54 g of water (H₂O)?<br>
+      Molar mass of H₂O = 2(1.008) + 16.00 = 18.016 g/mol<br>
+      moles = 54 ÷ 18.016 = <strong>3.00 mol</strong>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" disabled>← Previous</button>
+    <button class="nav-btn" onclick="showPageById('unit2')">Next: Molecular Properties →</button>
+  </div>
+</div>
+
+<!-- UNIT 2: MOLECULAR PROPERTIES -->
+<div id="unit2" class="page">
+  <div class="unit-label">Unit 2</div>
+  <h2>Molecular & Ionic Compound Structure</h2>
+  <div class="intro">
+    This unit is about how atoms bond together and what shape the resulting molecules take. Shape matters — it determines polarity, reactivity, and physical properties. Master Lewis structures and VSEPR theory here.
+  </div>
+
+  <div class="section">
+    <h3>🔗 Types of Chemical Bonds</h3>
+    <table>
+      <tr><th>Bond Type</th><th>Between</th><th>How It Works</th></tr>
+      <tr><td>Ionic</td><td>Metal + Nonmetal</td><td>Electron transfer; forms lattice structure</td></tr>
+      <tr><td>Covalent</td><td>Nonmetal + Nonmetal</td><td>Electron sharing</td></tr>
+      <tr><td>Metallic</td><td>Metal + Metal</td><td>"Sea" of delocalized electrons</td></tr>
+    </table>
+    <p>Electronegativity difference determines bond character: &lt;0.4 = nonpolar covalent; 0.4–1.7 = polar covalent; &gt;1.7 = ionic.</p>
+  </div>
+
+  <div class="section">
+    <h3>✏️ Lewis Structures</h3>
+    <p>Lewis structures show how valence electrons are arranged in a molecule. Follow these steps:</p>
+    <ol>
+      <li>Count total valence electrons from all atoms.</li>
+      <li>Place the least electronegative atom in the center.</li>
+      <li>Connect atoms with single bonds (use 2 electrons each).</li>
+      <li>Fill octets on outer atoms first with lone pairs.</li>
+      <li>Give remaining electrons to the central atom.</li>
+      <li>If the central atom lacks an octet, form double or triple bonds.</li>
+    </ol>
+    <div class="example">
+      <strong>Example: CO₂</strong><br>
+      C has 4 valence e⁻, each O has 6 → total = 16 e⁻<br>
+      Structure: O=C=O (two double bonds, no lone pairs on C, 2 lone pairs on each O)
+    </div>
+    <div class="callout">
+      <strong>Formal Charge:</strong> = Valence e⁻ − Lone pair e⁻ − ½(Bonding e⁻)<br>
+      The best Lewis structure minimizes formal charges. A negative formal charge should be on the more electronegative atom.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📐 VSEPR Theory & Molecular Geometry</h3>
+    <p>Electron groups (bonds + lone pairs) repel each other and arrange to be as far apart as possible. This determines molecular geometry.</p>
+    <table>
+      <tr><th>Electron Groups</th><th>Lone Pairs</th><th>Shape</th><th>Bond Angle</th></tr>
+      <tr><td>2</td><td>0</td><td>Linear</td><td>180°</td></tr>
+      <tr><td>3</td><td>0</td><td>Trigonal Planar</td><td>120°</td></tr>
+      <tr><td>3</td><td>1</td><td>Bent</td><td>~117°</td></tr>
+      <tr><td>4</td><td>0</td><td>Tetrahedral</td><td>109.5°</td></tr>
+      <tr><td>4</td><td>1</td><td>Trigonal Pyramidal</td><td>~107°</td></tr>
+      <tr><td>4</td><td>2</td><td>Bent</td><td>~104.5°</td></tr>
+      <tr><td>5</td><td>0</td><td>Trigonal Bipyramidal</td><td>90°/120°</td></tr>
+      <tr><td>6</td><td>0</td><td>Octahedral</td><td>90°</td></tr>
+    </table>
+    <div class="callout">
+      <strong>Key insight:</strong> Lone pairs repel MORE than bonding pairs. This is why water (2 lone pairs) has a bond angle of ~104.5° — less than the tetrahedral 109.5°.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🧲 Molecular Polarity</h3>
+    <p>A molecule is polar if it has polar bonds AND an asymmetric geometry. Even if bonds are polar, a symmetric molecule (like CO₂ or CCl₄) is nonpolar because the bond dipoles cancel.</p>
+    <ul>
+      <li><strong>Polar:</strong> H₂O, NH₃, HCl, SO₂</li>
+      <li><strong>Nonpolar:</strong> CO₂, CH₄, BF₃, N₂</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>🔀 Hybridization</h3>
+    <p>Hybridization explains how atomic orbitals mix to form new equivalent orbitals for bonding.</p>
+    <table>
+      <tr><th>Electron Groups</th><th>Hybridization</th><th>Example</th></tr>
+      <tr><td>2</td><td>sp</td><td>BeCl₂, CO₂</td></tr>
+      <tr><td>3</td><td>sp²</td><td>BF₃, C₂H₄ (each C)</td></tr>
+      <tr><td>4</td><td>sp³</td><td>CH₄, NH₃, H₂O</td></tr>
+      <tr><td>5</td><td>sp³d</td><td>PCl₅</td></tr>
+      <tr><td>6</td><td>sp³d²</td><td>SF₆</td></tr>
+    </table>
+    <p><strong>Sigma (σ) bonds</strong> are formed by head-on overlap (all single bonds are σ). <strong>Pi (π) bonds</strong> are formed by side-by-side overlap (the 2nd bond in a double bond and 2nd+3rd in a triple bond are π).</p>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="showPageById('unit1')">← Atomic Structure</button>
+    <button class="nav-btn" onclick="showPageById('unit3')">Next: Intermolecular Forces →</button>
+  </div>
+</div>
+
+<!-- UNIT 3: IMFs & STATES OF MATTER -->
+<div id="unit3" class="page">
+  <div class="unit-label">Unit 3</div>
+  <h2>Intermolecular Forces & States of Matter</h2>
+  <div class="intro">
+    Intermolecular forces (IMFs) are the attractions between molecules — weaker than bonds but responsible for physical properties like boiling point, melting point, viscosity, and solubility. This unit also covers gases, solutions, and phase diagrams.
+  </div>
+
+  <div class="section">
+    <h3>🤝 Types of Intermolecular Forces (weakest → strongest)</h3>
+    <table>
+      <tr><th>IMF</th><th>Between</th><th>Strength</th></tr>
+      <tr><td>London Dispersion (LDF)</td><td>All molecules</td><td>Weakest (increases with molar mass)</td></tr>
+      <tr><td>Dipole-Dipole</td><td>Polar molecules</td><td>Moderate</td></tr>
+      <tr><td>Hydrogen Bonding</td><td>N–H, O–H, or F–H</td><td>Strong (special dipole-dipole)</td></tr>
+      <tr><td>Ion-Dipole</td><td>Ion + polar molecule</td><td>Very strong</td></tr>
+    </table>
+    <div class="callout">
+      <strong>AP Rule:</strong> Higher IMF strength → higher boiling point, higher melting point, lower vapor pressure. When comparing molecules, identify the strongest IMF each has, then compare those.
+    </div>
+    <div class="example">
+      <strong>Example:</strong> Why does water boil at 100°C but H₂S at −60°C despite H₂S being heavier?<br>
+      Water forms hydrogen bonds (strong); H₂S only has dipole-dipole forces. H-bonds dominate, giving water a much higher boiling point.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>💨 The Ideal Gas Law</h3>
+    <div class="formula-box">
+      PV = nRT
+      P = pressure (atm), V = volume (L), n = moles, R = 0.08206 L·atm/mol·K, T = temperature (K)
+    </div>
+    <p>An <strong>ideal gas</strong> has no intermolecular forces and negligible particle volume. Real gases deviate at high pressure and low temperature.</p>
+    <ul>
+      <li><strong>Boyle's Law:</strong> P₁V₁ = P₂V₂ (constant T, n)</li>
+      <li><strong>Charles's Law:</strong> V₁/T₁ = V₂/T₂ (constant P, n)</li>
+      <li><strong>Avogadro's Law:</strong> V₁/n₁ = V₂/n₂ (constant P, T)</li>
+      <li><strong>Dalton's Law of Partial Pressures:</strong> P_total = P₁ + P₂ + P₃ + ...</li>
+    </ul>
+    <div class="example">
+      <strong>Example:</strong> A 2.0 L container holds 0.50 mol of gas at 300 K. What is the pressure?<br>
+      P = nRT/V = (0.50)(0.08206)(300)/2.0 = <strong>6.15 atm</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🌡️ Phase Diagrams</h3>
+    <p>A phase diagram shows which state (solid, liquid, gas) a substance exists in at given temperature and pressure.</p>
+    <ul>
+      <li><strong>Triple point:</strong> all three phases coexist in equilibrium</li>
+      <li><strong>Critical point:</strong> above this temperature and pressure, there is no distinct liquid/gas phase — the substance becomes a supercritical fluid</li>
+      <li><strong>Normal boiling point:</strong> where the liquid-gas line crosses 1 atm</li>
+    </ul>
+    <div class="callout">
+      <strong>Water is unusual:</strong> Its solid-liquid line has a negative slope — meaning increasing pressure at constant temperature can melt ice. This is because ice is less dense than liquid water.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🧪 Solutions & Concentration</h3>
+    <div class="formula-box">
+      Molarity (M) = moles of solute ÷ liters of solution
+      Dilution: M₁V₁ = M₂V₂
+    </div>
+    <p><strong>"Like dissolves like":</strong> polar solvents dissolve polar/ionic solutes; nonpolar solvents dissolve nonpolar solutes.</p>
+    <p><strong>Colligative properties</strong> depend on the number of dissolved particles, not their identity:</p>
+    <ul>
+      <li>Boiling point elevation: ΔTb = Kb × m × i</li>
+      <li>Freezing point depression: ΔTf = Kf × m × i</li>
+    </ul>
+    <p>where m = molality (mol solute/kg solvent) and i = van't Hoff factor (number of particles per formula unit).</p>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="showPageById('unit2')">← Molecular Properties</button>
+    <button class="nav-btn" onclick="showPageById('unit4')">Next: Chemical Reactions →</button>
+  </div>
+</div>
+
+<!-- UNIT 4: CHEMICAL REACTIONS -->
+<div id="unit4" class="page">
+  <div class="unit-label">Unit 4</div>
+  <h2>Chemical Reactions</h2>
+  <div class="intro">
+    Chemical reactions involve the rearrangement of atoms. This unit covers how to classify reactions, balance equations, work with stoichiometry, and understand what drives reactions in solution — including precipitation and oxidation-reduction.
+  </div>
+
+  <div class="section">
+    <h3>⚡ Types of Chemical Reactions</h3>
+    <table>
+      <tr><th>Type
