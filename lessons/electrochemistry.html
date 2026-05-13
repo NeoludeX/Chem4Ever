@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrochemistry | AP Chemistry</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete AP-level lessons across all 15 topics</p>
+</header>
+<nav>
+  <a href="../index.html">🏠 Home</a>
+  <a href="atomic-structure.html">1. Atomic Structure</a>
+  <a href="periodic-trends.html">2. Periodic Trends</a>
+  <a href="bonding.html">3. Bonding</a>
+  <a href="stoichiometry.html">4. Stoichiometry</a>
+  <a href="solutions.html">5. Solutions</a>
+  <a href="gases.html">6. Gases</a>
+  <a href="thermodynamics.html">7. Thermodynamics</a>
+  <a href="kinetics.html">8. Kinetics</a>
+  <a href="equilibrium.html">9. Equilibrium</a>
+  <a href="acids-bases.html">10. Acids &amp; Bases</a>
+  <a href="thermodynamics-2.html">11. Thermo II</a>
+  <a href="electrochemistry.html">12. Electrochemistry</a>
+  <a href="inorganic.html">13. Inorganic</a>
+  <a href="organic.html">14. Organic</a>
+  <a href="lab-analytical.html">15. Lab &amp; Analytical</a>
+</nav>
+<div class="page-wrapper">
+  <div class="unit-label">Topic 12</div>
+  <h2>Electrochemistry</h2>
+  <div class="intro">Electrochemistry connects chemical reactions to electrical energy. Galvanic cells generate electricity from spontaneous redox reactions; electrolytic cells use electricity to drive nonspontaneous ones. This unit ties together redox, thermodynamics, and equilibrium.</div>
+
+  <div class="section">
+    <h3>🔄 Oxidation &amp; Reduction (Redox)</h3>
+    <p>Redox reactions involve the transfer of electrons. Remember: <strong>OIL RIG</strong> — Oxidation Is Loss, Reduction Is Gain (of electrons).</p>
+    <ul>
+      <li><strong>Oxidation:</strong> loses electrons → oxidation number increases</li>
+      <li><strong>Reduction:</strong> gains electrons → oxidation number decreases</li>
+      <li><strong>Oxidizing agent:</strong> causes oxidation; gets reduced itself</li>
+      <li><strong>Reducing agent:</strong> causes reduction; gets oxidized itself</li>
+    </ul>
+    <div class="callout"><strong>Assigning Oxidation Numbers:</strong> Pure elements = 0; monatomic ions = their charge; O is usually −2; H is usually +1; sum of oxidation numbers in a neutral compound = 0; in a polyatomic ion = the ion's charge.</div>
+  </div>
+
+  <div class="section">
+    <h3>⚖️ Balancing Redox Equations (Half-Reaction Method)</h3>
+    <ol>
+      <li>Split into oxidation and reduction half-reactions</li>
+      <li>Balance all atoms except H and O</li>
+      <li>Balance O by adding H₂O</li>
+      <li>Balance H by adding H⁺ (acidic) or OH⁻ (basic)</li>
+      <li>Balance charge by adding electrons (e⁻)</li>
+      <li>Multiply half-reactions so electrons cancel</li>
+      <li>Add half-reactions together and simplify</li>
+    </ol>
+    <div class="example">
+      <strong>Example (acidic solution):</strong> Balance MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺<br>
+      Reduction: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O<br>
+      Oxidation: Fe²⁺ → Fe³⁺ + e⁻  (×5)<br>
+      Overall: MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🔋 Galvanic (Voltaic) Cells</h3>
+    <p>A galvanic cell converts chemical energy from a spontaneous redox reaction into electrical energy. It has two half-cells connected by a wire and a salt bridge.</p>
+    <ul>
+      <li><strong>Anode:</strong> oxidation occurs; negative electrode in galvanic cell</li>
+      <li><strong>Cathode:</strong> reduction occurs; positive electrode in galvanic cell</li>
+      <li><strong>Salt bridge:</strong> maintains electrical neutrality by allowing ion flow</li>
+      <li>Electrons flow from anode → cathode through the external wire</li>
+    </ul>
+    <div class="formula-box">E°cell = E°cathode − E°anode
+(using standard reduction potentials from the table)
+Spontaneous cell: E°cell > 0</div>
+    <div class="example">
+      <strong>Example:</strong> Zn/Zn²⁺ || Cu²⁺/Cu cell.<br>
+      E°(Cu²⁺/Cu) = +0.34 V (cathode — higher reduction potential)<br>
+      E°(Zn²⁺/Zn) = −0.76 V (anode)<br>
+      E°cell = 0.34 − (−0.76) = <strong>+1.10 V</strong> ✓ (positive = spontaneous)
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📉 The Nernst Equation</h3>
+    <p>The Nernst equation calculates cell potential under non-standard conditions (concentrations ≠ 1 M).</p>
+    <div class="formula-box">E = E° − (RT/nF) ln Q
+At 25°C simplified: E = E° − (0.0592/n) log Q
+n = moles of electrons transferred     Q = reaction quotient</div>
+    <div class="example">
+      <strong>Example:</strong> For the Zn/Cu cell, if [Zn²⁺] = 2.00 M and [Cu²⁺] = 0.100 M, find E.<br>
+      Zn + Cu²⁺ → Zn²⁺ + Cu; n = 2; E° = 1.10 V<br>
+      Q = [Zn²⁺]/[Cu²⁺] = 2.00/0.100 = 20.0<br>
+      E = 1.10 − (0.0592/2) log(20.0) = 1.10 − 0.0388 = <strong>1.061 V</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>⚡ Electrolytic Cells</h3>
+    <p>Electrolytic cells use external electrical energy to drive <strong>nonspontaneous</strong> redox reactions (E°cell &lt; 0). Used for electroplating and industrial processes like making aluminum.</p>
+    <ul>
+      <li>Anode is connected to the positive terminal of the power source</li>
+      <li>Cathode is connected to the negative terminal</li>
+      <li>Oxidation still at anode; reduction still at cathode</li>
+    </ul>
+    <div class="formula-box">Faraday's Law:
+moles of e⁻ = (current × time) / F = (I × t) / 96,485
+I = current in amperes (A)     t = time in seconds</div>
+    <div class="example">
+      <strong>Example:</strong> How many grams of Cu deposit when 2.00 A flows for 30.0 min through CuSO₄ solution?<br>
+      moles e⁻ = (2.00 × 1800) / 96,485 = 0.03731 mol<br>
+      Cu²⁺ + 2e⁻ → Cu, so moles Cu = 0.03731/2 = 0.01866 mol<br>
+      mass = 0.01866 × 63.55 = <strong>1.19 g Cu</strong>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <a class="nav-btn" href="thermodynamics-2.html">← Thermo II</a>
+    <a class="nav-btn" href="inorganic.html">Next: Inorganic →</a>
+  </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

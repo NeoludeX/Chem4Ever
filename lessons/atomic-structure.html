@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atomic Structure | AP Chemistry</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete AP-level lessons across all 15 topics</p>
+</header>
+<nav>
+  <a href="../index.html">🏠 Home</a>
+  <a href="atomic-structure.html">1. Atomic Structure</a>
+  <a href="periodic-trends.html">2. Periodic Trends</a>
+  <a href="bonding.html">3. Bonding</a>
+  <a href="stoichiometry.html">4. Stoichiometry</a>
+  <a href="solutions.html">5. Solutions</a>
+  <a href="gases.html">6. Gases</a>
+  <a href="thermodynamics.html">7. Thermodynamics</a>
+  <a href="kinetics.html">8. Kinetics</a>
+  <a href="equilibrium.html">9. Equilibrium</a>
+  <a href="acids-bases.html">10. Acids &amp; Bases</a>
+  <a href="thermodynamics-2.html">11. Thermo II</a>
+  <a href="electrochemistry.html">12. Electrochemistry</a>
+  <a href="inorganic.html">13. Inorganic</a>
+  <a href="organic.html">14. Organic</a>
+  <a href="lab-analytical.html">15. Lab &amp; Analytical</a>
+</nav>
+
+<div class="page-wrapper">
+  <div class="unit-label">Topic 1</div>
+  <h2>Atomic Structure &amp; Properties</h2>
+  <div class="intro">
+    Everything in chemistry begins with atoms. This lesson covers what atoms are made of, how electrons are arranged, how to read photoelectron spectra, and how to use the mole — chemistry's fundamental counting unit.
+  </div>
+
+  <div class="section">
+    <h3>⚛️ Subatomic Particles</h3>
+    <p>Every atom has a dense nucleus containing <strong>protons</strong> (positive) and <strong>neutrons</strong> (neutral), surrounded by a cloud of <strong>electrons</strong> (negative). The number of protons defines the element.</p>
+    <table>
+      <tr><th>Particle</th><th>Charge</th><th>Mass (amu)</th><th>Location</th></tr>
+      <tr><td>Proton</td><td>+1</td><td>1.0073</td><td>Nucleus</td></tr>
+      <tr><td>Neutron</td><td>0</td><td>1.0087</td><td>Nucleus</td></tr>
+      <tr><td>Electron</td><td>−1</td><td>~0.00055</td><td>Electron cloud</td></tr>
+    </table>
+    <div class="formula-box">Atomic number (Z) = number of protons
+Mass number (A) = protons + neutrons
+Neutrons = A − Z
+Neutral atom: electrons = protons</div>
+  </div>
+
+  <div class="section">
+    <h3>🔬 Isotopes &amp; Average Atomic Mass</h3>
+    <p><strong>Isotopes</strong> are atoms of the same element with different numbers of neutrons (same Z, different A). The average atomic mass on the periodic table is a weighted average based on natural abundance.</p>
+    <div class="formula-box">Average atomic mass = Σ (fractional abundance × isotope mass)</div>
+    <div class="example">
+      <strong>Example: Chlorine</strong>
+      Cl-35 is 75.77% abundant (34.969 amu); Cl-37 is 24.23% abundant (36.966 amu).<br>
+      Avg mass = (0.7577 × 34.969) + (0.2423 × 36.966) = <strong>35.45 amu</strong>
+    </div>
+    <div class="callout"><strong>AP Tip:</strong> Mass spectrometry produces a spectrum with peaks at each isotope mass. Peak height = relative abundance. You may be asked to calculate average atomic mass directly from a mass spectrum.</div>
+  </div>
+
+  <div class="section">
+    <h3>🌀 Electron Configuration</h3>
+    <p>Electrons occupy orbitals in shells and subshells. Three rules govern how they fill:</p>
+    <ul>
+      <li><strong>Aufbau Principle:</strong> Fill lowest-energy orbitals first.</li>
+      <li><strong>Pauli Exclusion Principle:</strong> Each orbital holds max 2 electrons with opposite spins.</li>
+      <li><strong>Hund's Rule:</strong> Fill each orbital in a subshell singly before pairing (like seats on a bus).</li>
+    </ul>
+    <div class="formula-box">Filling order: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d...</div>
+    <table>
+      <tr><th>Subshell</th><th>Number of Orbitals</th><th>Max Electrons</th></tr>
+      <tr><td>s</td><td>1</td><td>2</td></tr>
+      <tr><td>p</td><td>3</td><td>6</td></tr>
+      <tr><td>d</td><td>5</td><td>10</td></tr>
+      <tr><td>f</td><td>7</td><td>14</td></tr>
+    </table>
+    <div class="example">
+      <strong>Example: Iron (Fe, Z = 26)</strong>
+      Full configuration: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶<br>
+      Noble gas notation: [Ar] 4s² 3d⁶
+    </div>
+    <div class="danger">⚠️ <strong>Exceptions:</strong> Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰. Half-filled and fully-filled d subshells are extra stable, so one electron "steals" from 4s. These come up on the AP exam.</div>
+  </div>
+
+  <div class="section">
+    <h3>📡 Photoelectron Spectroscopy (PES)</h3>
+    <p>PES fires high-energy photons at an atom and measures how much energy is needed to eject electrons from each subshell. The result is a spectrum of peaks.</p>
+    <ul>
+      <li><strong>Higher binding energy</strong> = electrons closer to nucleus (core electrons)</li>
+      <li><strong>Lower binding energy</strong> = valence electrons, easier to remove</li>
+      <li><strong>Peak height</strong> is proportional to the number of electrons in that subshell</li>
+    </ul>
+    <div class="callout"><strong>AP Tip:</strong> Given a PES spectrum, count the peaks to find the number of occupied subshells. Use peak heights to determine how many electrons are in each. Then match to an electron configuration to identify the element. This is tested almost every year.</div>
+  </div>
+
+  <div class="section">
+    <h3>⚖️ The Mole &amp; Molar Mass</h3>
+    <p>The <strong>mole</strong> is the chemist's counting unit. One mole contains exactly <strong>6.022 × 10²³ particles</strong> (Avogadro's number). Molar mass (g/mol) numerically equals the atomic/molecular mass in amu.</p>
+    <div class="formula-box">moles = mass (g) ÷ molar mass (g/mol)
+particles = moles × 6.022 × 10²³
+mass = moles × molar mass</div>
+    <div class="example">
+      <strong>Example 1:</strong> How many moles are in 90 g of water (H₂O)?<br>
+      Molar mass = 2(1.008) + 16.00 = 18.016 g/mol<br>
+      moles = 90 ÷ 18.016 = <strong>5.00 mol</strong>
+    </div>
+    <div class="example">
+      <strong>Example 2:</strong> How many molecules are in 5.00 mol of H₂O?<br>
+      molecules = 5.00 × 6.022 × 10²³ = <strong>3.01 × 10²⁴ molecules</strong>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <span class="nav-btn disabled">← Previous</span>
+    <a class="nav-btn" href="periodic-trends.html">Next: Periodic Trends →</a>
+  </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

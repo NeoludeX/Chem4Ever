@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Equilibrium | AP Chemistry</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete AP-level lessons across all 15 topics</p>
+</header>
+<nav>
+  <a href="../index.html">🏠 Home</a>
+  <a href="atomic-structure.html">1. Atomic Structure</a>
+  <a href="periodic-trends.html">2. Periodic Trends</a>
+  <a href="bonding.html">3. Bonding</a>
+  <a href="stoichiometry.html">4. Stoichiometry</a>
+  <a href="solutions.html">5. Solutions</a>
+  <a href="gases.html">6. Gases</a>
+  <a href="thermodynamics.html">7. Thermodynamics</a>
+  <a href="kinetics.html">8. Kinetics</a>
+  <a href="equilibrium.html">9. Equilibrium</a>
+  <a href="acids-bases.html">10. Acids &amp; Bases</a>
+  <a href="thermodynamics-2.html">11. Thermo II</a>
+  <a href="electrochemistry.html">12. Electrochemistry</a>
+  <a href="inorganic.html">13. Inorganic</a>
+  <a href="organic.html">14. Organic</a>
+  <a href="lab-analytical.html">15. Lab &amp; Analytical</a>
+</nav>
+<div class="page-wrapper">
+  <div class="unit-label">Topic 9</div>
+  <h2>Equilibrium</h2>
+  <div class="intro">Most reactions don't go to completion — they reach a state of equilibrium where forward and reverse reactions occur at the same rate. Mastering equilibrium is essential for acids/bases, solubility, and thermodynamics.</div>
+
+  <div class="section">
+    <h3>⚖️ The Equilibrium Constant (Keq)</h3>
+    <p>At equilibrium, the ratio of product concentrations to reactant concentrations is constant — the equilibrium constant K.</p>
+    <div class="formula-box">For aA + bB ⇌ cC + dD:
+Kc = [C]^c [D]^d / [A]^a [B]^b
+
+Rules:
+• Pure solids and pure liquids are OMITTED from K expressions
+• K > 1: products favored at equilibrium
+• K < 1: reactants favored at equilibrium
+• K = 1: roughly equal amounts of both</div>
+    <div class="callout"><strong>Kp vs Kc:</strong> Kp uses partial pressures (atm); Kc uses molar concentrations (M). They relate by: Kp = Kc(RT)^Δn, where Δn = moles gas products − moles gas reactants.</div>
+  </div>
+
+  <div class="section">
+    <h3>🧮 ICE Tables</h3>
+    <p>ICE (Initial, Change, Equilibrium) tables organize equilibrium calculations. This is the most important skill in this unit.</p>
+    <div class="example">
+      <strong>Example:</strong> H₂(g) + I₂(g) ⇌ 2HI(g), Kc = 49.0 at 450°C.<br>
+      Initial: [H₂] = 1.00 M, [I₂] = 1.00 M, [HI] = 0<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;H₂&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;I₂&nbsp;&nbsp;&nbsp;&nbsp;⇌&nbsp;&nbsp;&nbsp;&nbsp;2HI<br>
+      I:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br>
+      C:&nbsp;&nbsp;&nbsp;&nbsp;−x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;−x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+2x<br>
+      E:&nbsp;&nbsp;1.00−x&nbsp;&nbsp;&nbsp;&nbsp;1.00−x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2x<br><br>
+      Kc = (2x)² / (1.00−x)² = 49.0<br>
+      Take square root: 2x/(1.00−x) = 7.00<br>
+      2x = 7.00 − 7x → 9x = 7.00 → x = 0.778<br>
+      [HI] = 2(0.778) = <strong>1.556 M</strong>; [H₂] = [I₂] = 0.222 M
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📊 Reaction Quotient (Q)</h3>
+    <p>Q has the same form as K but uses current (non-equilibrium) concentrations. Comparing Q to K tells you which direction the reaction will proceed.</p>
+    <table>
+      <tr><th>If...</th><th>Then...</th></tr>
+      <tr><td>Q &lt; K</td><td>Reaction shifts RIGHT (toward products) to reach equilibrium</td></tr>
+      <tr><td>Q = K</td><td>System is already at equilibrium</td></tr>
+      <tr><td>Q &gt; K</td><td>Reaction shifts LEFT (toward reactants) to reach equilibrium</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>↔️ Le Châtelier's Principle</h3>
+    <p>When a system at equilibrium is stressed, it shifts to partially counteract that stress.</p>
+    <table>
+      <tr><th>Stress Applied</th><th>System Response</th></tr>
+      <tr><td>Add reactant</td><td>Shifts right (toward products)</td></tr>
+      <tr><td>Remove reactant</td><td>Shifts left (toward reactants)</td></tr>
+      <tr><td>Add product</td><td>Shifts left</td></tr>
+      <tr><td>Increase pressure (decrease volume)</td><td>Shifts toward fewer moles of gas</td></tr>
+      <tr><td>Increase temperature (exothermic rxn)</td><td>Shifts left; K decreases</td></tr>
+      <tr><td>Increase temperature (endothermic rxn)</td><td>Shifts right; K increases</td></tr>
+      <tr><td>Add catalyst</td><td>No shift; reaches equilibrium faster</td></tr>
+    </table>
+    <div class="danger">⚠️ A catalyst does NOT change K or the equilibrium position — it only speeds up how quickly equilibrium is reached.</div>
+  </div>
+
+  <div class="section">
+    <h3>🧂 Solubility Equilibria (Ksp)</h3>
+    <p>The <strong>solubility product constant (Ksp)</strong> describes the equilibrium between an ionic solid and its dissolved ions.</p>
+    <div class="formula-box">For PbCl₂(s) ⇌ Pb²⁺(aq) + 2Cl⁻(aq):
+Ksp = [Pb²⁺][Cl⁻]²
+(Pure solid PbCl₂ is omitted)</div>
+    <div class="example">
+      <strong>Example:</strong> Ksp of AgCl = 1.8×10⁻¹⁰. Find molar solubility.<br>
+      AgCl ⇌ Ag⁺ + Cl⁻<br>
+      Let solubility = s: Ksp = s × s = s² = 1.8×10⁻¹⁰<br>
+      s = √(1.8×10⁻¹⁰) = <strong>1.34×10⁻⁵ M</strong>
+    </div>
+    <div class="callout"><strong>Common Ion Effect:</strong> Adding an ion that's already in the equilibrium shifts it left, decreasing solubility. Example: AgCl is less soluble in NaCl solution than in pure water because Cl⁻ is already present.</div>
+  </div>
+
+  <div class="nav-buttons">
+    <a class="nav-btn" href="kinetics.html">← Kinetics</a>
+    <a class="nav-btn" href="acids-bases.html">Next: Acids &amp; Bases →</a>
+  </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

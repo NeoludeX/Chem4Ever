@@ -1,0 +1,200 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a1a2e;
+}
+
+header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  padding: 24px 40px;
+  text-align: center;
+}
+header h1 { font-size: 2rem; letter-spacing: 1px; }
+header p { margin-top: 6px; font-size: 0.95rem; color: #a0b0c8; }
+
+nav {
+  background: #16213e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+nav a {
+  background: transparent;
+  border: 1px solid #3a5068;
+  color: #a0b8d0;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+nav a:hover { background: #0f3460; color: white; border-color: #0f3460; }
+nav a.active { background: #e94560; color: white; border-color: #e94560; font-weight: 600; }
+
+.page-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px 80px;
+}
+
+.unit-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e94560;
+  margin-bottom: 6px;
+}
+
+h2 { font-size: 1.9rem; color: #1a1a2e; margin-bottom: 8px; }
+
+.intro {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  padding: 16px 20px;
+  background: #e8eef5;
+  border-left: 4px solid #e94560;
+  border-radius: 0 8px 8px 0;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.section h3 {
+  font-size: 1.15rem;
+  color: #0f3460;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8eef5;
+}
+
+.section p { line-height: 1.75; color: #333; margin-bottom: 12px; }
+.section p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 10px 0 14px 24px; }
+li { line-height: 1.8; color: #333; margin-bottom: 4px; }
+
+.formula-box {
+  background: #1a1a2e;
+  color: #7ecfff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.97rem;
+  padding: 16px 22px;
+  border-radius: 8px;
+  margin: 14px 0;
+  line-height: 2;
+  white-space: pre-wrap;
+}
+
+.callout {
+  background: #fff8e1;
+  border-left: 4px solid #f9a825;
+  padding: 12px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 0.92rem;
+  color: #555;
+}
+.callout strong { color: #e65100; }
+
+.danger {
+  background: #fff5f5;
+  border-left: 4px solid #e53e3e;
+  padding: 12px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 0.92rem;
+  color: #742a2a;
+}
+
+.example {
+  background: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 0.93rem;
+  color: #333;
+}
+.example strong { color: #1b5e20; display: block; margin-bottom: 6px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 0.93rem;
+}
+th {
+  background: #0f3460;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+}
+td { padding: 9px 14px; border-bottom: 1px solid #e0e0e0; color: #333; }
+tr:nth-child(even) td { background: #f5f7fa; }
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #e8eef5;
+}
+
+.nav-btn {
+  background: #0f3460;
+  color: white;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.nav-btn:hover { background: #e94560; }
+.nav-btn.disabled {
+  background: #ccc;
+  pointer-events: none;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.home-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  text-decoration: none;
+  display: block;
+  border-top: 4px solid #e94560;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.home-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.13); }
+.home-card .card-unit { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: #e94560; margin-bottom: 6px; text-transform: uppercase; }
+.home-card h3 { font-size: 1rem; color: #0f3460; margin-bottom: 6px; }
+.home-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }

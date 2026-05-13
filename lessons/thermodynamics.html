@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thermodynamics | AP Chemistry</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete AP-level lessons across all 15 topics</p>
+</header>
+<nav>
+  <a href="../index.html">🏠 Home</a>
+  <a href="atomic-structure.html">1. Atomic Structure</a>
+  <a href="periodic-trends.html">2. Periodic Trends</a>
+  <a href="bonding.html">3. Bonding</a>
+  <a href="stoichiometry.html">4. Stoichiometry</a>
+  <a href="solutions.html">5. Solutions</a>
+  <a href="gases.html">6. Gases</a>
+  <a href="thermodynamics.html">7. Thermodynamics</a>
+  <a href="kinetics.html">8. Kinetics</a>
+  <a href="equilibrium.html">9. Equilibrium</a>
+  <a href="acids-bases.html">10. Acids &amp; Bases</a>
+  <a href="thermodynamics-2.html">11. Thermo II</a>
+  <a href="electrochemistry.html">12. Electrochemistry</a>
+  <a href="inorganic.html">13. Inorganic</a>
+  <a href="organic.html">14. Organic</a>
+  <a href="lab-analytical.html">15. Lab &amp; Analytical</a>
+</nav>
+<div class="page-wrapper">
+  <div class="unit-label">Topic 7</div>
+  <h2>Thermodynamics I — Energy &amp; Enthalpy</h2>
+  <div class="intro">Thermodynamics is the study of energy and its transformations. This lesson covers heat, enthalpy, calorimetry, and Hess's Law — the tools used to measure and calculate energy changes in chemical reactions.</div>
+
+  <div class="section">
+    <h3>🔥 Heat, Temperature &amp; Energy</h3>
+    <p><strong>Temperature</strong> measures the average kinetic energy of particles. <strong>Heat (q)</strong> is the transfer of thermal energy between objects at different temperatures. Heat flows from hot → cold.</p>
+    <ul>
+      <li><strong>Exothermic reaction:</strong> releases heat to surroundings; q &lt; 0; ΔH &lt; 0 (e.g., combustion)</li>
+      <li><strong>Endothermic reaction:</strong> absorbs heat from surroundings; q &gt; 0; ΔH &gt; 0 (e.g., melting ice)</li>
+    </ul>
+    <div class="formula-box">q = mcΔT
+q = heat (J)    m = mass (g)    c = specific heat capacity (J/g·°C)    ΔT = T_final − T_initial
+Specific heat of water = 4.184 J/g·°C</div>
+    <div class="example">
+      <strong>Example:</strong> How much heat is needed to raise 200 g of water from 25°C to 75°C?<br>
+      q = 200 × 4.184 × (75 − 25) = 200 × 4.184 × 50 = <strong>41,840 J = 41.84 kJ</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🧪 Calorimetry</h3>
+    <p>A <strong>calorimeter</strong> measures heat flow during a reaction. In a coffee-cup calorimeter (constant pressure), heat lost by reaction = heat gained by solution.</p>
+    <div class="formula-box">q_reaction = −q_solution = −mcΔT
+ΔH = q_reaction ÷ moles of limiting reagent</div>
+    <div class="example">
+      <strong>Example:</strong> 50.0 mL of 1.00 M HCl is mixed with 50.0 mL of 1.00 M NaOH. Temperature rises from 22.0°C to 28.9°C. Find ΔH per mole of water formed. (Assume density = 1.00 g/mL, c = 4.184 J/g·°C)<br>
+      mass = 100.0 g; ΔT = 6.9°C<br>
+      q_solution = 100.0 × 4.184 × 6.9 = 2887 J<br>
+      q_reaction = −2887 J; moles H₂O = 0.0500 mol<br>
+      ΔH = −2887 ÷ 0.0500 = <strong>−57,740 J/mol = −57.7 kJ/mol</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>📏 Enthalpy &amp; Standard Enthalpies</h3>
+    <p><strong>Enthalpy (H)</strong> is the heat content of a system at constant pressure. We measure <strong>ΔH</strong> — the change in enthalpy. Standard enthalpy of formation (ΔH°f) is the enthalpy change when 1 mole of a compound forms from its elements in standard states.</p>
+    <div class="formula-box">ΔH°rxn = Σ ΔH°f(products) − Σ ΔH°f(reactants)
+Note: ΔH°f of any pure element in its standard state = 0</div>
+    <div class="example">
+      <strong>Example:</strong> Calculate ΔH°rxn for: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l)<br>
+      ΔH°f values: CH₄ = −74.8, O₂ = 0, CO₂ = −393.5, H₂O(l) = −285.8 kJ/mol<br>
+      ΔH°rxn = [−393.5 + 2(−285.8)] − [−74.8 + 0]<br>
+      = [−965.1] − [−74.8] = <strong>−890.3 kJ/mol</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🔗 Hess's Law</h3>
+    <p>Enthalpy is a <strong>state function</strong> — it doesn't matter what path you take, only where you start and end. Hess's Law lets you add reactions algebraically to find ΔH for a target reaction.</p>
+    <p>Rules when manipulating reactions:</p>
+    <ul>
+      <li>If you <strong>reverse</strong> a reaction, flip the sign of ΔH</li>
+      <li>If you <strong>multiply</strong> a reaction by a factor, multiply ΔH by the same factor</li>
+    </ul>
+    <div class="example">
+      <strong>Example:</strong> Find ΔH for C(s) + ½O₂(g) → CO(g) given:<br>
+      (1) C + O₂ → CO₂     ΔH = −393.5 kJ<br>
+      (2) CO + ½O₂ → CO₂   ΔH = −283.0 kJ<br>
+      Reverse reaction (2): CO₂ → CO + ½O₂   ΔH = +283.0 kJ<br>
+      Add to (1): C + O₂ + CO₂ → CO₂ + CO + ½O₂<br>
+      Cancel CO₂: C + ½O₂ → CO   ΔH = −393.5 + 283.0 = <strong>−110.5 kJ</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🔩 Bond Enthalpies</h3>
+    <p>You can estimate ΔH by counting bonds broken (endothermic) and bonds formed (exothermic).</p>
+    <div class="formula-box">ΔH ≈ Σ(bond energies broken) − Σ(bond energies formed)
+Breaking bonds: + (endothermic)    Forming bonds: − (exothermic)</div>
+    <div class="callout"><strong>AP Tip:</strong> Bond enthalpy calculations give estimates — actual ΔH values use standard enthalpies of formation and are more accurate. The AP exam may ask you to use either method.</div>
+  </div>
+
+  <div class="nav-buttons">
+    <a class="nav-btn" href="gases.html">← Gases</a>
+    <a class="nav-btn" href="kinetics.html">Next: Kinetics →</a>
+  </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

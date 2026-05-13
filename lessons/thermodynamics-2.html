@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thermodynamics II | AP Chemistry</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<header>
+  <h1>⚗️ AP Chemistry Study Guide</h1>
+  <p>Complete AP-level lessons across all 15 topics</p>
+</header>
+<nav>
+  <a href="../index.html">🏠 Home</a>
+  <a href="atomic-structure.html">1. Atomic Structure</a>
+  <a href="periodic-trends.html">2. Periodic Trends</a>
+  <a href="bonding.html">3. Bonding</a>
+  <a href="stoichiometry.html">4. Stoichiometry</a>
+  <a href="solutions.html">5. Solutions</a>
+  <a href="gases.html">6. Gases</a>
+  <a href="thermodynamics.html">7. Thermodynamics</a>
+  <a href="kinetics.html">8. Kinetics</a>
+  <a href="equilibrium.html">9. Equilibrium</a>
+  <a href="acids-bases.html">10. Acids &amp; Bases</a>
+  <a href="thermodynamics-2.html">11. Thermo II</a>
+  <a href="electrochemistry.html">12. Electrochemistry</a>
+  <a href="inorganic.html">13. Inorganic</a>
+  <a href="organic.html">14. Organic</a>
+  <a href="lab-analytical.html">15. Lab &amp; Analytical</a>
+</nav>
+<div class="page-wrapper">
+  <div class="unit-label">Topic 11</div>
+  <h2>Thermodynamics II — Entropy &amp; Gibbs Free Energy</h2>
+  <div class="intro">This unit connects enthalpy and entropy into one powerful concept — Gibbs free energy — which predicts whether a reaction will spontaneously occur. It also ties thermodynamics directly to equilibrium.</div>
+
+  <div class="section">
+    <h3>🌀 Entropy (S)</h3>
+    <p>Entropy is a measure of <strong>disorder or randomness</strong> in a system. Nature tends toward higher entropy — this is the Second Law of Thermodynamics.</p>
+    <p>Entropy increases when:</p>
+    <ul>
+      <li>Solids melt → liquids, or liquids vaporize → gases</li>
+      <li>A substance dissolves into solution</li>
+      <li>Moles of gas increase during a reaction</li>
+      <li>Temperature increases</li>
+      <li>More complex molecules form from simpler ones</li>
+    </ul>
+    <div class="formula-box">ΔS°rxn = Σ S°(products) − Σ S°(reactants)
+Units: J/mol·K (note: joules, not kilojoules!)</div>
+    <div class="callout"><strong>AP Tip:</strong> The Third Law states that a perfect crystal at 0 K has S = 0. This means absolute entropy values (S°) are always positive. ΔS can be negative or positive.</div>
+  </div>
+
+  <div class="section">
+    <h3>⚡ Gibbs Free Energy (G)</h3>
+    <p>Gibbs free energy combines enthalpy and entropy into one criterion for spontaneity. A reaction is spontaneous when ΔG &lt; 0.</p>
+    <div class="formula-box">ΔG = ΔH − TΔS
+ΔG° = ΔH° − TΔS°      (standard conditions)
+ΔG° = Σ ΔG°f(products) − Σ ΔG°f(reactants)
+T must be in Kelvin</div>
+    <table>
+      <tr><th>ΔH</th><th>ΔS</th><th>ΔG</th><th>Spontaneous?</th></tr>
+      <tr><td>− (exothermic)</td><td>+ (more disorder)</td><td>Always −</td><td>Always spontaneous</td></tr>
+      <tr><td>+ (endothermic)</td><td>− (less disorder)</td><td>Always +</td><td>Never spontaneous</td></tr>
+      <tr><td>− (exothermic)</td><td>− (less disorder)</td><td>Depends on T</td><td>Spontaneous at low T</td></tr>
+      <tr><td>+ (endothermic)</td><td>+ (more disorder)</td><td>Depends on T</td><td>Spontaneous at high T</td></tr>
+    </table>
+    <div class="example">
+      <strong>Example:</strong> A reaction has ΔH° = −92 kJ/mol and ΔS° = −198 J/mol·K. At what temperature does spontaneity switch?<br>
+      Set ΔG = 0: 0 = ΔH − TΔS → T = ΔH/ΔS<br>
+      T = −92,000 ÷ −198 = <strong>465 K</strong><br>
+      Below 465 K: spontaneous (ΔG &lt; 0). Above 465 K: nonspontaneous.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🔗 ΔG° and Equilibrium</h3>
+    <p>Standard free energy and the equilibrium constant are directly related. This is one of the most important connections in all of AP Chemistry.</p>
+    <div class="formula-box">ΔG° = −RT ln K
+R = 8.314 J/mol·K     T in Kelvin     K = equilibrium constant
+
+Also: ΔG = ΔG° + RT ln Q
+(tells you spontaneity at non-standard conditions)</div>
+    <table>
+      <tr><th>ΔG°</th><th>K</th><th>Meaning</th></tr>
+      <tr><td>Negative</td><td>K &gt; 1</td><td>Products favored at equilibrium</td></tr>
+      <tr><td>Zero</td><td>K = 1</td><td>Roughly equal products and reactants</td></tr>
+      <tr><td>Positive</td><td>K &lt; 1</td><td>Reactants favored at equilibrium</td></tr>
+    </table>
+    <div class="example">
+      <strong>Example:</strong> Calculate K at 298 K for a reaction with ΔG° = −17.1 kJ/mol.<br>
+      −17,100 = −(8.314)(298) ln K<br>
+      ln K = 17,100 ÷ 2477.6 = 6.90<br>
+      K = e^6.90 = <strong>992</strong> (products strongly favored)
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🔋 ΔG° and Electrochemistry Connection</h3>
+    <div class="formula-box">ΔG° = −nFE°cell
+n = moles of electrons transferred
+F = Faraday's constant = 96,485 C/mol
+E°cell = standard cell potential (volts)</div>
+    <div class="callout"><strong>Key relationships to memorize:</strong> Spontaneous reaction → ΔG° &lt; 0 → K &gt; 1 → E°cell &gt; 0. These three criteria all say the same thing — products are favored.</div>
+  </div>
+
+  <div class="nav-buttons">
+    <a class="nav-btn" href="acids-bases.html">← Acids &amp; Bases</a>
+    <a class="nav-btn" href="electrochemistry.html">Next: Electrochemistry →</a>
+  </div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>
